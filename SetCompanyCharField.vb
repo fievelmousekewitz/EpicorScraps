@@ -21,8 +21,8 @@ Imports Epicor.Mfg.BO
 
 Module Script 
 
-    Private WithEvents edvUD09 As EpiDataView
-  '// ** Wizard Insert Location - Do Not Remove 'Begin/End Wizard Added Module Level Variables' Comments! ** 
+   	 Private WithEvents edvUD09 As EpiDataView
+  	'// ** Wizard Insert Location - Do Not Remove 'Begin/End Wizard Added Module Level Variables' Comments! ** 
 	'// Begin Wizard Added Module Level Variables ** 
 	'// End Wizard Added Module Level Variables ** 
 	'// Add Custom Module Level Variables Here ** 
@@ -56,7 +56,7 @@ Module Script
 		compAdapt.GetByID(company)
 		compAdapt.CompanyData.Tables("Company").Rows(0).BeginEdit()
 		txtEpiCustom1.Text = compAdapt.CompanyData.Tables("Company").Rows(0)("Character02")
-        txtEpiCustom2.Text = compAdapt.CompanyData.Tables("Company").Rows(0)("Character02")
+        	txtEpiCustom2.Text = compAdapt.CompanyData.Tables("Company").Rows(0)("Character02")
 		compAdapt.CompanyData.Tables("Company").Rows(0).EndEdit()
 		compAdapt.Update( )
 	        
@@ -69,20 +69,20 @@ Module Script
 	
 		Dim view As EpiDataView = CType(oTrans.EpiDataViews("UD02"), EpiDataView)
 		Dim compAdapt As CompanyAdapter = New CompanyAdapter (UD02Form)
-	    if (txtEpiCustom2.Text = "") then
-	        MessageBox.Show("Please enter a value.")
-	        return
-	    end if
-	    Dim message As String = txtEpiCustom2.Text
+	    	if (txtEpiCustom2.Text = "") then
+	    	    MessageBox.Show("Please enter a value.")
+	        	return
+	    	end if
+	    	Dim message As String = txtEpiCustom2.Text
 		compAdapt.BOConnect ()
 		dim company as string
-	    company = "ACT"
-	    compAdapt.GetByID(company)
+	    	company = "ACT"
+	    	compAdapt.GetByID(company)
 		compAdapt.CompanyData.Tables("Company").Rows(0).BeginEdit()
 		compAdapt.CompanyData.Tables("Company").Rows(0)("Character02") = message
 		compAdapt.CompanyData.Tables("Company").Rows(0).EndEdit()
 		compAdapt.Update( )
-	    txtEpiCustom1.Text = compAdapt.CompanyData.Tables("Company").Rows(0)("Character02")
+	    	txtEpiCustom1.Text = compAdapt.CompanyData.Tables("Company").Rows(0)("Character02")
 		compAdapt.Dispose( )
 		End Sub
 
